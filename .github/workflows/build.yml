@@ -12,8 +12,8 @@ jobs:
       - uses: gradle/actions/setup-gradle@v4
         with:
           gradle-version: 9.2.0
-      - name: Unzip project
-        run: unzip -q wtcblocks-fabric-1.21.11.zip
+      - name: Unzip project 
+      run: find . -name "*.zip" -not -path "./.git/*" | head -1 | xargs unzip -q
       - name: Build
         run: gradle build --no-daemon
         working-directory: wtcblocks
